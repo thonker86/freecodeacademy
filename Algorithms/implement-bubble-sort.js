@@ -7,7 +7,6 @@ function bubbleSort(array) {
     array.splice(minIndex,1)
     newArr.push(min)
   }
-  console.log(newArr)
   return newArr
   // Only change code above this line
 }
