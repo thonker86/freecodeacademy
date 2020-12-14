@@ -32,6 +32,7 @@ var HashTable = function() {
     if(this.has(k) && this.collection[hashed].hasOwnProperty(k)){
       return this.collection[hashed][k]
     }
+	return null;
   };
 
   this.has = k =>{
