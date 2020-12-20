@@ -7,40 +7,16 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
 
-  this.add = (value, root = this.root)=>{
-    let newNode = new Node(value);
-    if(!this.root){
-      this.root = newNode;
-    }else{
-      if(value == root.value){
-        return null;
-      }else if(value < root.value){
-        if(!root.left){
-          root.left = newNode;
-        }else{
-          return this.add(value, root.left);
-        }
-      }else{
-        if(!root.right){
-          root.right = newNode;
-        }else{
-          return this.add(value, root.right);
-        }
-      }
-    }
-  }
-  
-  // Only change code below this line
   this.inorder = (root = this.root, treeArr = [])=>{    
     if(this.isEmpty()) return null;
-    treeArr.push(root.value)
     if(root.left){
       this.inorder(root.left, treeArr);
     }
+    treeArr.push(root.value)
     if(root.right){
       this.inorder(root.right, treeArr);
     }
-    return treeArr.sort((a,b)=>{return a-b});
+    return treeArr;
   }
 
   this.preorder = (root = this.root, treeArr = [])=>{
@@ -68,5 +44,4 @@ function BinarySearchTree() {
   this.isEmpty = ()=>{
     return Boolean(!this.root)
   }
-  // Only change code above this line
 }
